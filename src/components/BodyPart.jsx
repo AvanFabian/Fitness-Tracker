@@ -31,6 +31,7 @@ const BodyPart = ({ item, setBodyPart, bodyPart, eachBodyPart }) => {
         window.scrollTo({ top: 1800, left: 100, behavior: 'smooth' });
       }}
     >
+      {/* Adjust Each category icon based on bodypart name */}
       <img src={Icon} alt="dumbbell" style={{ width: '40px', height: '40px' }} />
       <Typography fontSize="24px" fontWeight="bold" fontFamily="Alegreya" color="#12163a" textTransform="capitalize"> 
         {item}
