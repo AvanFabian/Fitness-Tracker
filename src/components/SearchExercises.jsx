@@ -5,7 +5,8 @@ import { exerciseOptions, fetchData } from '../utils/fetchData';
 import HorizontalScrollbar from './HorizontalScrollbar';
 
 // SetBodyPart and other's coming from Home.jsx
-const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
+const SearchExercises = ({ setExercises, bodyPart, setBodyPart,
+  eachBodyPart, setEachBodyPart }) => {
   const [search, setSearch] = useState('');
   const [bodyParts, setBodyParts] = useState([]);
 
@@ -13,8 +14,9 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
   useEffect(() => {
     const fetchExercisesData = async () => {
       const bodyPartsData = await fetchData('https://exercisedb.p.rapidapi.com/exercises/bodyPartList', exerciseOptions);
-      console.log('bodyPartsData');
+      console.log('bodyPartsData : ');
       console.log(bodyPartsData);
+      setEachBodyPart(bodyPartsData);
       setBodyParts(['all', ...bodyPartsData]);
     };
 
@@ -67,7 +69,7 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
       </Box>
       <Box sx={{ position: 'relative', width: '100%', p: '20px' }}>
         {/* bodyParts coming from HorizontalScrollbar.jsx */}
-        <HorizontalScrollbar data={bodyParts} bodyParts setBodyPart={setBodyPart} bodyPart={bodyPart} />
+        <HorizontalScrollbar data={bodyParts} eachBodyPart bodyParts setBodyPart={setBodyPart} bodyPart={bodyPart} />
       </Box>
     </Stack>
   );

@@ -8,6 +8,7 @@ import HeroBanner from '../components/HeroBanner';
 
 const Home = () => {
   const [exercises, setExercises] = useState([]);
+  const [eachBodyPart, setEachBodyPart] = useState([]);
   const [bodyPart, setBodyPart] = useState('all');
 
   return (
@@ -17,6 +18,8 @@ const Home = () => {
           setExercises={setExercises} 
           bodyPart={bodyPart} 
           setBodyPart={setBodyPart} 
+          exercisesData={eachBodyPart} // Try to add different icon on each category 
+          setEachBodyPart={setEachBodyPart} // Try to add different icon on each category
         />
         <Exercises 
         setExercises={setExercises} 
